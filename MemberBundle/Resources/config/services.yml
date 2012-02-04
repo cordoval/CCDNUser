@@ -1,0 +1,7 @@
+parameters:
+#    ccdn_user_member.example.class: CCDNUser\MemberBundle\Example
+
+services:
+#    ccdn_user_member.example:
+#        class: %ccdn_user_member.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
