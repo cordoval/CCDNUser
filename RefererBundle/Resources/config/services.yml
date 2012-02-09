@@ -1,8 +1,0 @@
-parameters:
-    
-services:
-    listener.referer:
-        class: CCDNUser\RefererBundle\Listener\RefererListener
-        arguments: [@router, @service_container]
-        tags:
-            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

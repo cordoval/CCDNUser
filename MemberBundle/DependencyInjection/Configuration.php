@@ -44,13 +44,14 @@ class Configuration implements ConfigurationInterface
 						->scalarNode('profile_route')->defaultValue('cc_profile_show_by_id')->end()
 					->end()
 				->end()
-				->scalarNode('members_per_page')->defaultValue(50)->end()
 				->arrayNode('template')
 					->children()
 						->scalarNode('engine')->defaultValue('twig')->end()
 						->scalarNode('theme')->defaultValue('CCDNUserMemberBundle:Form:fields.html.twig')->end()
 					->end()
 				->end()
+				->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
+				->scalarNode('members_per_page')->defaultValue(50)->end()
 			->end();
 		
         return $treeBuilder;

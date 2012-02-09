@@ -40,9 +40,11 @@ class CCDNUserMemberExtension extends Extension
         $loader->load('services.yml');
 
 		$container->setParameter('ccdn_user_member.user.profile_route', $config['user']['profile_route']);
-		$container->setParameter('ccdn_user_member.members_per_page', $config['members_per_page']);
-		
 		$container->setParameter('ccdn_user_member.template.engine', $config['template']['engine']);
 		$container->setParameter('ccdn_user_member.template.theme', $config['template']['theme']);
+		
+		$container->setParameter('ccdn_user_member.members_per_page', $config['members_per_page']);
+		$container->setParameter('ccdn_user_member.layout_template', $config['layout_template']);
+		
     }
 }

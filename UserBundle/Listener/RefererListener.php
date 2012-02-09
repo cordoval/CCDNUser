@@ -11,7 +11,7 @@
  * file that was distributed with this source code.
  */
 
-namespace CCDNUser\RefererBundle\Listener;
+namespace CCDNUser\UserBundle\Listener;
 
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;

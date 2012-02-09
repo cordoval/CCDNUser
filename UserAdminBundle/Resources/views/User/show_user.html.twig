@@ -73,7 +73,7 @@
 				</tr>
 				<tr class="{{ cycler(['row_odd', 'row_even'], 'cycle') }}">
 					<td class="h_align_centre v_align_middle" colspan="2">
-							<a href="{{ path('cc_admin_user_account_edit') }}">{{ 'link.profile.edit' |trans({}, 'CCDNUserProfileBundle') }}</a>
+							<a href="{{ path('cc_admin_user_account_edit', {'user_id': user.getId}) }}">{{ 'link.profile.edit' |trans({}, 'CCDNUserProfileBundle') }}</a>
 				    </td>
 				</tr>
 			</tbody>

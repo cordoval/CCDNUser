@@ -72,7 +72,7 @@ class RoleController extends ContainerAware
 				->add($category->getName(),	$this->container->get('router')->generate('cc_forum_category_show', array('category_id' => $category->getId())), "category");*/
 				
 			return $this->container->get('templating')->renderResponse('CCDNUserUserAdminBundle:Role:set_users_role.html.' . $this->getEngine(), array(
-			//	'user_profile_route' => $this->container->getParameter('ccdn_forum_forum.user.profile_route'),
+			//	'user_profile_route' => $this->container->getParameter('ccdn_forum_admin.user.profile_route'),
 				'user' => $user,
 			//	'crumbs' => $crumb_trail,
 				'form' => $form->createView(),

@@ -1,4 +1,4 @@
-CCDN Forum README.
+CCDN User README.
 ==================
 
 
