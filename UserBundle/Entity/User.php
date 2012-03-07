@@ -129,6 +129,12 @@ class User extends BaseUser
      */
     protected $facebookId;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="facebookUserName", type="string", length=255, nullable=true)
+     */
+    protected $facebookUserName;
 
     public function serialize()
     {
