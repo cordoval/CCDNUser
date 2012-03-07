@@ -40,7 +40,7 @@ class MemberController extends ContainerAware
 			throw new AccessDeniedException('You do not have access to this section.');
 		}
 				
-		$members_paginated = $this->container->get('user.repository')->findAllPaginated();
+		$members_paginated = $this->container->get('ccdn_user_user.user.repository')->findAllPaginated();
 
 		$members_per_page = $this->container->getParameter('ccdn_user_member.members_per_page');
 		$members_paginated->setMaxPerPage($members_per_page);
@@ -70,7 +70,7 @@ class MemberController extends ContainerAware
 			throw new AccessDeniedException('You do not have access to this section.');
 		}
 
-		$members_paginated = $this->container->get('user.repository')->findAllFilteredPaginated($alpha);
+		$members_paginated = $this->container->get('ccdn_user_user.user.repository')->findAllFilteredPaginated($alpha);
 
 		$members_per_page = $this->container->getParameter('ccdn_user_member.members_per_page');
 		$members_paginated->setMaxPerPage($members_per_page);

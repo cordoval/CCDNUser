@@ -43,14 +43,14 @@ class RoleController extends ContainerAware
 			throw new AccessDeniedException('You do not have permission to access this page!');
 		}
 		
-		$user = $this->container->get('user.repository')->findOneById($user_id);
+		$user = $this->container->get('ccdn_user_user.user.repository')->findOneById($user_id);
 
 		if ( ! is_object($user) || ! $user instanceof UserInterface)
 		{
             throw new NotFoundHttpException('the user does not exist.');
         }
 			
-		$formHandler = $this->container->get('role.form.change.handler')->setOptions(array('user' => $user));
+		$formHandler = $this->container->get('ccdn_user_user_admin.role.form.change.handler')->setOptions(array('user' => $user));
 
 		if ($formHandler->process())
 		{	
@@ -66,7 +66,7 @@ class RoleController extends ContainerAware
 		{
 			$form = $formHandler->getForm();
 				
-	/*		$crumb_trail = $this->container->get('crumb_trail')
+	/*		$crumb_trail = $this->container->get('ccdn_component_crumb_trail.crumb_trail')
 				->add($this->container->get('translator')->trans('crumbs.forum_index', array(), 'CCDNForumForumBundle'), 
 					$this->container->get('router')->generate('cc_forum_category_index'), "home")
 				->add($category->getName(),	$this->container->get('router')->generate('cc_forum_category_show', array('category_id' => $category->getId())), "category");*/

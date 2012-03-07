@@ -44,7 +44,7 @@ class UserController extends ContainerAware
 			throw new AccessDeniedException('You do not have access to this section.');
 		}
 				
-		$users_paginated = $this->container->get('user.repository')->findAllNewPaginated();
+		$users_paginated = $this->container->get('ccdn_user_user.user.repository')->findAllNewPaginated();
 
 		$users_per_page = $this->container->getParameter('ccdn_user_member.members_per_page');
 		$users_paginated->setMaxPerPage($users_per_page);
@@ -74,7 +74,7 @@ class UserController extends ContainerAware
 			throw new AccessDeniedException('You do not have access to this section.');
 		}
 
-		$user = $this->container->get('user.repository')->findOneById($user_id);			
+		$user = $this->container->get('ccdn_user_user.user.repository')->findOneById($user_id);			
 
 		if ( ! is_object($user) || ! $user instanceof UserInterface)
 		{
@@ -117,7 +117,7 @@ class UserController extends ContainerAware
 		{
 			$user = $this->container->get('security.context')->getToken()->getUser();
 		} else {
-			$user = $this->container->get('user.repository')->findOneById($user_id);			
+			$user = $this->container->get('ccdn_user_user.user.repository')->findOneById($user_id);			
 		}
 
 		if ( ! is_object($user) || ! $user instanceof UserInterface)

@@ -3,9 +3,9 @@ parameters:
     ccdn_user_user_admin.role.form.change.type.class:       CCDNUser\UserAdminBundle\Form\Type\RoleType
 
 services:
-    role.form.change.handler:
+    ccdn_user_user_admin.role.form.change.handler:
         class:  %ccdn_user_user_admin.role.form.change.handler.class%
-        arguments:  [@form.factory, @service_container, @user.manager]
-    role.form.change.type:
+        arguments:  [@form.factory, @service_container, @ccdn_user_user.user.manager]
+    ccdn_user_user_admin.role.form.change.type:
         class:  %ccdn_user_user_admin.role.form.change.type.class%
         arguments:  [@doctrine]

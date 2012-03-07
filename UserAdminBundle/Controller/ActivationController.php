@@ -44,7 +44,7 @@ class ActivationController extends ContainerAware
 			throw new AccessDeniedException('You do not have access to this section.');
 		}
 				
-		$users_paginated = $this->container->get('user.repository')->findAllUnactivatedPaginated();
+		$users_paginated = $this->container->get('ccdn_user_user.user.repository')->findAllUnactivatedPaginated();
 
 		$users_per_page = $this->container->getParameter('ccdn_user_member.members_per_page');
 		$users_paginated->setMaxPerPage($users_per_page);
@@ -73,14 +73,14 @@ class ActivationController extends ContainerAware
 			throw new AccessDeniedException('You do not have permission to access this page!');
 		}
 		
-		$user = $this->container->get('user.repository')->findOneById($user_id);			
+		$user = $this->container->get('ccdn_user_user.user.repository')->findOneById($user_id);			
 
 		if ( ! is_object($user) || ! $user instanceof UserInterface)
 		{
             throw new NotFoundHttpException('the user does not exist.');
         }
 		
-		$this->container->get('user.manager')->activate($user)->flushNow();
+		$this->container->get('ccdn_user_user.user.manager')->activate($user)->flushNow();
 
 		$this->container->get('session')->setFlash('notice', 
 			$this->container->get('translator')->trans('flash.user.activate.success', array('%username%' => $user->getUsername()), 'CCDNUserUserAdminBundle'));
@@ -102,14 +102,14 @@ class ActivationController extends ContainerAware
 			throw new AccessDeniedException('You do not have permission to access this page!');
 		}
 		
-		$user = $this->container->get('user.repository')->findOneById($user_id);			
+		$user = $this->container->get('ccdn_user_user.user.repository')->findOneById($user_id);			
 
 		if ( ! is_object($user) || ! $user instanceof UserInterface)
 		{
             throw new NotFoundHttpException('the user does not exist.');
         }
 		
-		$this->container->get('user.manager')->forceReActivate($user)->flushNow();
+		$this->container->get('ccdn_user_user.user.manager')->forceReActivate($user)->flushNow();
 
 		$this->container->get('session')->setFlash('notice', 
 			$this->container->get('translator')->trans('flash.user.force_reactivation.success', array('%username%' => $user->getUsername()), 'CCDNUserUserAdminBundle'));
