@@ -15,6 +15,7 @@ namespace CCDNUser\UserAdminBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
 /**
  * This is the class that validates and merges configuration from your app/config files
@@ -37,7 +38,121 @@ class Configuration implements ConfigurationInterface
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
-
+		$rootNode
+			->children()
+				->arrayNode('user')
+					->children()
+						->scalarNode('profile_route')->defaultValue('cc_profile_show_by_id')->end()
+					->end()
+				->end()
+				->arrayNode('template')
+					->children()
+						->scalarNode('engine')->defaultValue('twig')->end()
+						->scalarNode('theme')->defaultValue('CCDNUserUserAdminBundle:Form:fields.html.twig')->end()
+					->end()
+				->end()
+			->end();
+		
+		$this->addActivationSection($rootNode);
+		$this->addBanSection($rootNode);
+		$this->addRoleSection($rootNode);
+		$this->addUserSection($rootNode);
+		
         return $treeBuilder;
     }
+
+	
+
+	/**
+	 *
+	 * @access private
+	 * @param ArrayNodeDefinition $node
+	 */
+	private function addActivationSection(ArrayNodeDefinition $node)
+	{
+		$node
+			->children()
+				->arrayNode('activation')
+					->children()
+						->arrayNode('layout_templates')
+							->children()
+								->scalarNode('show_unactivated_users')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
+							->end()
+						->end()
+					->end()
+				->end()
+			->end();
+	}
+	
+	
+
+	/**
+	 *
+	 * @access private
+	 * @param ArrayNodeDefinition $node
+	 */
+	private function addBanSection(ArrayNodeDefinition $node)
+	{
+		$node
+			->children()
+				->arrayNode('ban')
+					->children()
+						->arrayNode('layout_templates')
+							->children()
+								->scalarNode('show_banned_users')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
+							->end()
+						->end()
+					->end()
+				->end()
+			->end();
+	}
+	
+	
+
+	/**
+	 *
+	 * @access private
+	 * @param ArrayNodeDefinition $node
+	 */
+	private function addRoleSection(ArrayNodeDefinition $node)
+	{
+		$node
+			->children()
+				->arrayNode('role')
+					->children()
+						->arrayNode('layout_templates')
+							->children()
+								->scalarNode('set_users_role')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
+							->end()
+						->end()
+					->end()
+				->end()
+			->end();
+	}
+	
+	
+
+	/**
+	 *
+	 * @access private
+	 * @param ArrayNodeDefinition $node
+	 */
+	private function addUserSection(ArrayNodeDefinition $node)
+	{
+		$node
+			->children()
+				->arrayNode('account')
+					->children()
+						->arrayNode('layout_templates')
+							->children()
+								->scalarNode('edit_user')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
+								->scalarNode('show_newest_users')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
+								->scalarNode('show_user')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
+							->end()
+						->end()
+					->end()
+				->end()
+			->end();
+	}
+	
 }

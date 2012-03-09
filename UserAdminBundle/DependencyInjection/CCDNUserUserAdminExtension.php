@@ -28,6 +28,9 @@ use Symfony\Component\DependencyInjection\Loader;
  */
 class CCDNUserUserAdminExtension extends Extension
 {
+	
+	
+	
     /**
      * {@inheritDoc}
      */
@@ -38,5 +41,65 @@ class CCDNUserUserAdminExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+		$container->setParameter('ccdn_user_user_admin.user.profile_route', $config['user']['profile_route']);
+		$container->setParameter('ccdn_user_user_admin.template.engine', $config['template']['engine']);
+		$container->setParameter('ccdn_user_user_admin.template.theme', $config['template']['theme']);
+		
+		$this->getActivationSection($container, $config);
+		$this->getBanSection($container, $config);
+		$this->getRoleSection($container, $config);
+		$this->getAccountSection($container, $config);
     }
+	
+	
+	
+	/**
+	 *
+	 * @access private
+	 * @param $container, $config
+	 */
+	private function getActivationSection($container, $config)
+	{
+		$container->setParameter('ccdn_user_user_admin.activation.layout_templates.show_unactivated_users', $config['activation']['layout_templates']['show_unactivated_users']);
+	}
+	
+	
+	
+	/**
+	 *
+	 * @access private
+	 * @param $container, $config
+	 */
+	private function getBanSection($container, $config)
+	{
+		$container->setParameter('ccdn_user_user_admin.ban.layout_templates.show_banned_users', $config['ban']['layout_templates']['show_banned_users']);
+	}
+
+	
+	
+	/**
+	 *
+	 * @access private
+	 * @param $container, $config
+	 */
+	private function getRoleSection($container, $config)
+	{
+		$container->setParameter('ccdn_user_user_admin.role.layout_templates.set_users_role', $config['role']['layout_templates']['set_users_role']);
+	}
+
+		
+	
+	/**
+	 *
+	 * @access private
+	 * @param $container, $config
+	 */
+	private function getAccountSection($container, $config)
+	{
+		$container->setParameter('ccdn_user_user_admin.account.layout_templates.edit_user', $config['account']['layout_templates']['edit_user']);
+		$container->setParameter('ccdn_user_user_admin.account.layout_templates.show_newest_user', $config['account']['layout_templates']['show_newest_users']);
+		$container->setParameter('ccdn_user_user_admin.account.layout_templates.show_user', $config['account']['layout_templates']['show_user']);
+	}
+	
 }

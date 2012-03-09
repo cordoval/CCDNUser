@@ -44,7 +44,21 @@ class CCDNUserMemberExtension extends Extension
 		$container->setParameter('ccdn_user_member.template.theme', $config['template']['theme']);
 		
 		$container->setParameter('ccdn_user_member.members_per_page', $config['members_per_page']);
-		$container->setParameter('ccdn_user_member.layout_template', $config['layout_template']);
 		
+		$this->getMemberSection($container, $config);
     }
+	
+	
+	
+	/**
+	 *
+	 * @access private
+	 * @param $container, $config
+	 */
+	private function getMemberSection($container, $config)
+	{
+		$container->setParameter('ccdn_user_member.member.layout_templates.list', $config['member']['layout_templates']['list']);
+	}
+	
+	
 }

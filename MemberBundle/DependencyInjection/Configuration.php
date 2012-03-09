@@ -15,6 +15,7 @@ namespace CCDNUser\MemberBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
 /**
  * This is the class that validates and merges configuration from your app/config files
@@ -50,10 +51,36 @@ class Configuration implements ConfigurationInterface
 						->scalarNode('theme')->defaultValue('CCDNUserMemberBundle:Form:fields.html.twig')->end()
 					->end()
 				->end()
-				->scalarNode('layout_template')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
 				->scalarNode('members_per_page')->defaultValue(50)->end()
 			->end();
 		
+		$this->addMemberSection($rootNode);
+		
         return $treeBuilder;
     }
+
+	
+
+	/**
+	 *
+	 * @access private
+	 * @param ArrayNodeDefinition $node
+	 */
+	private function addMemberSection(ArrayNodeDefinition $node)
+	{
+		$node
+			->children()
+				->arrayNode('member')
+					->children()
+						->arrayNode('layout_templates')
+							->children()
+								->scalarNode('list')->defaultValue('CCDNComponentCommonBundle:Layout:layout_body_left.html.twig')->end()
+							->end()
+						->end()
+					->end()
+				->end()
+			->end();
+	}
+	
+	
 }
