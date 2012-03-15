@@ -37,10 +37,8 @@
 		<img class="icon_16x16" width="16px" height="16px" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_user.png') }}" />
 		<a class="heading_link" href="{{ path(app.request.attributes.get('_route')) }}">{{ 'title.member' | trans({}, 'CCDNUserMemberBundle') }}</a><br />
 	</div>
-	<div class="common_box_panel common_tool_strip">			
-		<div class="pagerfanta">
-			{{ pagerfanta(pager, 'default', {'routeName': 'cc_admin_user_show_banned_paginated' } ) }}
-		</div>
+	<div class="pagerfanta">
+		{{ pagerfanta(pager, 'default', {'routeName': 'cc_admin_user_show_banned_paginated' } ) }}
 	</div>
 	<div class="common_box_panel">		
 		<table class="common_list">
@@ -64,10 +62,8 @@
 			</tbody>
 		</table>
 	</div>
-	<div class="common_box_panel common_tool_strip">		
-		<div class="pagerfanta">
-			{{ pagerfanta(pager, 'default', {'routeName': 'cc_admin_user_show_banned_paginated' } ) }}
-		</div>
+	<div class="pagerfanta">
+		{{ pagerfanta(pager, 'default', {'routeName': 'cc_admin_user_show_banned_paginated' } ) }}
 	</div>
 </div>	
 
