@@ -69,30 +69,30 @@
 					</td>
 					<td class="h_align_centre">
 						{% if user.getProfile.website %}
-						<a href="{{ user.getProfile.website }}" target="_blank"><img class="icon_16x16" width="16px" height="16px" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_world.png') }}" /></a>
+						<a href="{{ user.getProfile.website }}" target="_blank"><img class="icon_16x16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_world.png') }}" alt="icon" /></a>
 						{% endif %}
 					</td>
 					<td class="h_align_centre">
-						<a href="{{ path('cc_message_message_compose_to', {'user_id': user.getId }) }}"><img class="icon_16x16" width="16px" height="16px" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_email.png') }}" /></a>
+						<a href="{{ path('cc_message_message_compose_to', {'user_id': user.getId }) }}"><img class="icon_16x16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_email.png') }}" alt="icon" /></a>
 					</td>
 					<td class="h_align_centre">
 						{% if user.getProfile.aimIsPublic %}
-						<a href="mailto:{{ user.getProfile.aim }}"><img class="icon_16x16" width="16px" height="16px" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" /></a>
+						<a href="mailto:{{ user.getProfile.aim }}"><img class="icon_16x16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" alt="icon" /></a>
 						{% endif %}
 					</td>
 					<td class="h_align_centre">
 						{% if user.getProfile.msnIsPublic %}
-						<a href="mailto:{{ user.getProfile.msn }}"><img class="icon_16x16" width="16px" height="16px" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" /></a>
+						<a href="mailto:{{ user.getProfile.msn }}"><img class="icon_16x16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" alt="icon" /></a>
 						{% endif %}
 					</td>
 					<td class="h_align_centre">
 						{% if user.getProfile.icqIsPublic %}
-						<a href="mailto:{{ user.getProfile.icq }}"><img class="icon_16x16" width="16px" height="16px" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" /></a>
+						<a href="mailto:{{ user.getProfile.icq }}"><img class="icon_16x16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" alt="icon" /></a>
 						{% endif %}
 					</td>
 					<td class="h_align_centre">
 						{% if user.getProfile.yahooIsPublic %}
-						<a href="mailto:{{ user.getProfile.yahoo }}"><img class="icon_16x16" width="16px" height="16px" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" /></a>
+						<a href="mailto:{{ user.getProfile.yahoo }}"><img class="icon_16x16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" alt="icon" /></a>
 						{% endif %}
 					</td>
 					<td class="h_align_centre">{{ user.getRegisteredDate|date("d/m/Y - H:i:s") }}</td>
