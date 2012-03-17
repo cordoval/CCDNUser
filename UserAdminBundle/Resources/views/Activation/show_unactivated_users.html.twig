@@ -34,8 +34,8 @@
 		<span class="heading_glow">{{ 'title.member' | trans({}, 'CCDNUserMemberBundle') }}</span>
 	</div>
 	<div class="common_box_panel">
-		<img class="icon_16x16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_user.png') }}" alt="icon" />
-		<a class="heading_link" href="{{ path(app.request.attributes.get('_route')) }}">{{ 'title.member' | trans({}, 'CCDNUserMemberBundle') }}</a><br />
+		<img class="icon_16x16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_user.png') }}" alt="icon">
+		<a class="heading_link" href="{{ path(app.request.attributes.get('_route')) }}">{{ 'title.member' | trans({}, 'CCDNUserMemberBundle') }}</a><br>
 	</div>
 	<div class="pagerfanta">
 		{{ pagerfanta(pager, 'default', {'routeName': 'cc_admin_user_show_unactivated_paginated' } ) }}
