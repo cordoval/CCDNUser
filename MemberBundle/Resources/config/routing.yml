@@ -6,7 +6,7 @@ cc_members_index:
 
 cc_members_paginated:
     pattern: /{_locale}/members/page/{page}
-    defaults: { _controller: CCDNUserMemberBundle:List:show, _locale: en, page: 1 }
+    defaults: { _controller: CCDNUserMemberBundle:Member:show, _locale: en, page: 1 }
     requirements:
         _locale: en
         
@@ -18,6 +18,6 @@ cc_members_alpha_index:
 
 cc_members_alpha_paginated:
     pattern: /{_locale}/members/filter/{alpha}/page/{page}
-    defaults: { _controller: CCDNUserMemberBundle:List:showFiltered, _locale: en, page: 1, alpha: a }
+    defaults: { _controller: CCDNUserMemberBundle:Member:showFiltered, _locale: en, page: 1, alpha: a }
     requirements:
         _locale: en
