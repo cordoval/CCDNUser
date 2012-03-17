@@ -49,17 +49,17 @@
 	<div class="common_box_panel">		
 		<table class="common_list">
 			<thead>
-				<th>{{ 'member.table.head.username' | trans({}, 'CCDNUserMemberBundle') }}</th>
-				<th class="h_align_centre">{{ 'member.table.head.website' | trans({}, 'CCDNUserMemberBundle') }}</th>
-				<th class="h_align_centre">{{ 'member.table.head.pm' | trans({}, 'CCDNUserMemberBundle') }}</th>
-				<th class="h_align_centre">{{ 'member.table.head.aim' | trans({}, 'CCDNUserMemberBundle') }}</th>	
-				<th class="h_align_centre">{{ 'member.table.head.msn' | trans({}, 'CCDNUserMemberBundle') }}</th>	
-				<th class="h_align_centre">{{ 'member.table.head.icq' | trans({}, 'CCDNUserMemberBundle') }}</th>	
-				<th class="h_align_centre">{{ 'member.table.head.yahoo' | trans({}, 'CCDNUserMemberBundle') }}</th>
-				<th class="h_align_centre">{{ 'member.table.head.joined_date' | trans({}, 'CCDNUserMemberBundle') }}</th>				
+				<tr>
+					<th>{{ 'member.table.head.username' | trans({}, 'CCDNUserMemberBundle') }}</th>
+					<th class="h_align_centre">{{ 'member.table.head.website' | trans({}, 'CCDNUserMemberBundle') }}</th>
+					<th class="h_align_centre">{{ 'member.table.head.pm' | trans({}, 'CCDNUserMemberBundle') }}</th>
+					<th class="h_align_centre">{{ 'member.table.head.aim' | trans({}, 'CCDNUserMemberBundle') }}</th>	
+					<th class="h_align_centre">{{ 'member.table.head.msn' | trans({}, 'CCDNUserMemberBundle') }}</th>	
+					<th class="h_align_centre">{{ 'member.table.head.icq' | trans({}, 'CCDNUserMemberBundle') }}</th>	
+					<th class="h_align_centre">{{ 'member.table.head.yahoo' | trans({}, 'CCDNUserMemberBundle') }}</th>
+					<th class="h_align_centre">{{ 'member.table.head.joined_date' | trans({}, 'CCDNUserMemberBundle') }}</th>				
+				</tr>
 			</thead>
-			<tfoot>
-			</tfoot>
 			<tbody>
 			{% for row, user in members %}
 				{% if not user.locked or not user.enabled %}
