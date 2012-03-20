@@ -1,3 +1,7 @@
+cc_admin_user_cp:
+    pattern: /{_locale}/dashboard/admin
+    defaults: { _controller: CCDNComponentDashboardBundle:Dashboard:show, _locale: en }
+    
 cc_admin_user_show_unactivated:
     pattern: /{_locale}/admin/user/show/unactivated
     defaults: { _controller: CCDNUserUserAdminBundle:Activation:showUnactivatedUsers, _locale: en, page: 1 }

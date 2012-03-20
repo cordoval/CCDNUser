@@ -1,7 +1,10 @@
 parameters:
-#    ccdn_user_member.example.class: CCDNUser\MemberBundle\Example
+    ccdn_user_member.dashboard_integrator.class:            CCDNUser\MemberBundle\Component\Dashboard\DashboardIntegrator
 
 services:
-#    ccdn_user_member.example:
-#        class: %ccdn_user_member.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+
+    ccdn_user_member.dashboard_integrator:
+        class: %ccdn_user_member.dashboard_integrator.class%
+        arguments: [@service_container]
+        tags:
+            - { name: ccdn_component_dashboard.registry }
