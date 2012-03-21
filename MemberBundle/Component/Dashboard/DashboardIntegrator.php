@@ -41,7 +41,7 @@ class DashboardIntegrator extends BaseIntegrator
 		$resources = array(
 			'user' => array(
 				'Community' => array(
-					'cc_members_index' => array('auth' => 'ROLE_USER', 'url' => $this->basePath . '/' . $this->locale . '/members', 'name' => 'Members', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_users.png')
+					'cc_members_index' => array('auth' => 'ROLE_USER', 'url' => $this->baseUrl . '/' . $this->locale . '/members', 'name' => 'Members', 'icon' => $this->basePath . '/bundles/ccdncomponentcommon/images/icons/Black/32x32/32x32_users.png')
 				),
 			),
 

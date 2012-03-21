@@ -56,7 +56,7 @@ class Configuration implements ConfigurationInterface
 		$this->addActivationSection($rootNode);
 		$this->addBanSection($rootNode);
 		$this->addRoleSection($rootNode);
-		$this->addUserSection($rootNode);
+		$this->addAccountSection($rootNode);
 		
         return $treeBuilder;
     }
@@ -137,7 +137,7 @@ class Configuration implements ConfigurationInterface
 	 * @access private
 	 * @param ArrayNodeDefinition $node
 	 */
-	private function addUserSection(ArrayNodeDefinition $node)
+	private function addAccountSection(ArrayNodeDefinition $node)
 	{
 		$node
 			->children()
