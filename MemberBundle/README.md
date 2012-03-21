@@ -83,7 +83,7 @@ add to your autoload:
 
     new CCDNUser\MemberBundle\CCDNUserMemberBundle(),    
     new CCDNUser\ProfileBundle\CCDNUserProfileBundle(),    
-    new CCDNUser\UserAdminBundle\CCDNUserUserAdminBundle(),    
+    new CCDNUser\UserAdminBundle\CCDNUserAdminBundle(),    
     new CCDNUser\UserBundle\CCDNUserUserBundle(),    
 ``` 
 
@@ -179,7 +179,7 @@ ccdn_user_user_admin:
         profile_route: cc_profile_show_by_id 
     template:
         engine: twig
-        theme: CCDNUserUserAdminBundle:Form:fields.html.twig
+        theme: CCDNUserAdminBundle:Form:fields.html.twig
     activation:
         layout_templates:
             show_unactivated_users: CCDNComponentCommonBundle:Layout:layout_body_left.html.twig
@@ -241,8 +241,8 @@ CCDNUserProfileBundle:
     resource: "@CCDNUserProfileBundle/Resources/config/routing.yml"
     prefix: /
 
-CCDNUserUserAdminBundle:
-    resource: "@CCDNUserUserAdminBundle/Resources/config/routing.yml"
+CCDNUserAdminBundle:
+    resource: "@CCDNUserAdminBundle/Resources/config/routing.yml"
     prefix: /
 
 CCDNUserUserBundle:
