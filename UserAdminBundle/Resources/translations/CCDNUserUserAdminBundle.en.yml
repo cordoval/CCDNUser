@@ -1,3 +1,7 @@
+title.user.admin.newest_users: New Users
+title.user.admin.unactivated_users: Unactivated Users
+title.user.admin.banned_users: Banned Users
+
 sidebar.header.admin.user: User Management
 sidebar.link.user.show_new: New Users
 sidebar.link.user.show_unactivated: Unactivated Users

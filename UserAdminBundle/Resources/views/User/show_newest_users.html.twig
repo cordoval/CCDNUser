@@ -4,7 +4,7 @@
 	{{ parent() }}
 {% endblock %}
 
-{% block title %}{{ 'title.member' | trans({}, 'CCDNUserMemberBundle') }}{% endblock %}
+{% block title %}{{ 'title.user.admin.newest_users' | trans({}, 'CCDNUserUserAdminBundle') }}{% endblock %}
 
 {% block sidebar %}
 	{% if is_granted('ROLE_MODERATOR') %}
@@ -31,11 +31,7 @@
 
 <div class="common_box_5 bg_header_smoke">
 	<div class="common_box_header">
-		<span class="heading_glow">{{ 'title.member' | trans({}, 'CCDNUserMemberBundle') }}</span>
-	</div>
-	<div class="common_box_panel">
-		<img class="icon_16x16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_user.png') }}" alt="icon">
-		<a class="heading_link" href="{{ path(app.request.attributes.get('_route')) }}">{{ 'title.member' | trans({}, 'CCDNUserMemberBundle') }}</a><br>
+		<span class="heading_glow">{{ 'title.user.admin.newest_users' | trans({}, 'CCDNUserUserAdminBundle') }}</span>
 	</div>
 	<div class="pagerfanta">
 		{{ pagerfanta(pager, 'default', {'routeName': 'cc_admin_user_show_newest_paginated' } ) }}

@@ -98,7 +98,7 @@ class CCDNUserUserAdminExtension extends Extension
 	private function getAccountSection($container, $config)
 	{
 		$container->setParameter('ccdn_user_user_admin.account.layout_templates.edit_user', $config['account']['layout_templates']['edit_user']);
-		$container->setParameter('ccdn_user_user_admin.account.layout_templates.show_newest_user', $config['account']['layout_templates']['show_newest_users']);
+		$container->setParameter('ccdn_user_user_admin.account.layout_templates.show_newest_users', $config['account']['layout_templates']['show_newest_users']);
 		$container->setParameter('ccdn_user_user_admin.account.layout_templates.show_user', $config['account']['layout_templates']['show_user']);
 	}
 	
