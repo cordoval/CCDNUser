@@ -43,9 +43,11 @@
 		{% endfor %}
 		</div>
 	</div>
+	{% if pager.haveToPaginate %}
 	<div class="pagerfanta">
 		{{ pagerfanta(pager, 'default', {'routeName': pager_route } ) }}
 	</div>
+	{% endif %}
 	<div class="common_box_panel">		
 		<table class="common_list">
 			<thead>
@@ -102,9 +104,11 @@
 			</tbody>
 		</table>
 	</div>
+	{% if pager.haveToPaginate %}
 	<div class="pagerfanta">
 		{{ pagerfanta(pager, 'default', {'routeName': pager_route } ) }}
 	</div>
+	{% endif %}
 </div>	
 
 {% endblock %}
