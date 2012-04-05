@@ -2,7 +2,10 @@ parameters:
     ccdn_user_member.dashboard.integrator.class:            CCDNUser\MemberBundle\Component\Dashboard\DashboardIntegrator
 
 services:
-
+    
+    #
+    # Dashboard Integrator.
+    #
     ccdn_user_member.dashboard.integrator:
         class: %ccdn_user_member.dashboard.integrator.class%
         arguments: [@service_container]
