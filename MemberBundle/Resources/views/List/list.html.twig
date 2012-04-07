@@ -70,7 +70,7 @@
 				<tr class="{{ cycle(['row_odd', 'row_even'], row) }}">
 					<td class="left">
 						<span class="table_data">
-						<a class="username_medium" href="{{ path(user_profile_route, {'user_id': user.getId }) }}">{{ user.username }}</a>
+						<a href="{{ path(user_profile_route, {'user_id': user.getId }) }}">{{ user.username }}</a>
 						</span>
 					</td>
 					<td class="center">
