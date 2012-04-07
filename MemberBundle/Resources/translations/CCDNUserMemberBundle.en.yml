@@ -1,4 +1,4 @@
-title.member: Members
+title.member: 'Members.'
 
 member.table.head.username: username
 member.table.head.website: website
@@ -8,3 +8,5 @@ member.table.head.msn: MSN
 member.table.head.icq: ICQ
 member.table.head.yahoo: Yahoo
 member.table.head.joined_date: Member Since
+
+members.table.empty: 'No members were found.'

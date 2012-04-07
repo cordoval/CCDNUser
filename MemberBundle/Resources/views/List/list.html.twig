@@ -8,21 +8,21 @@
 
 {% block sidebar %}
 	{% if is_granted('ROLE_MODERATOR') %}
-	<div class="common_box_5 bg_header_smoke">
-		<div class="common_box_header"><span class="heading_glow">{{ 'sidebar.header.special' | trans({}, 'CCDNComponentCommonBundle') }}</span></div>
-		<div class="common_box_panel"><a class="sidebar" href="{{ path('cc_moderator_forum_cp') }}">{{ 'general.view.link_moderate' | trans({}, 'CCDNComponentCommonBundle') }}</a></div>
+	<div class="sidebar">
+		<div class="sidebar_header"><span class="sidebar_header">{{ 'sidebar.header.special' | trans({}, 'CCDNComponentCommonBundle') }}</span></div>
+		<div class="sidebar_panel"><a class="sidebar" href="{{ path('cc_moderator_forum_cp') }}">{{ 'general.view.link_moderate' | trans({}, 'CCDNComponentCommonBundle') }}</a></div>
 		{% if is_granted('ROLE_ADMIN') %}
-		<div class="common_box_panel"><a class="sidebar" href="{{ path('cc_admin_forum_cp') }}">{{ 'general.view.link_administrate' | trans({}, 'CCDNComponentCommonBundle') }}</a></div>
+		<div class="sidebar_panel"><a class="sidebar" href="{{ path('cc_admin_forum_cp') }}">{{ 'general.view.link_administrate' | trans({}, 'CCDNComponentCommonBundle') }}</a></div>
 		{% endif %}
 	</div>
 	{% endif %}
 	
 	{% if is_granted('ROLE_USER') %}
-	<div class="common_box_5 bg_header_smoke">
-		<div class="common_box_header"><span class="heading_glow">{{ 'sidebar.header.tools'|trans({}, 'CCDNUserProfileBundle') }}</span></div>
+	<div class="sidebar">
+		<div class="sidebar_header"><span class="sidebar_header">{{ 'sidebar.header.tools'|trans({}, 'CCDNUserProfileBundle') }}</span></div>
 		{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-		<div class="common_box_panel"><a class="sidebar" href="{{ path('cc_user_account_show') }}">{{ 'sidebar.link.account.view'|trans({}, 'CCDNUserProfileBundle') }}</a></div>
-		<div class="common_box_panel"><a class="sidebar" href="{{ path('cc_profile_show') }}">{{ 'sidebar.link.profile.view'|trans({}, 'CCDNUserProfileBundle') }}</a></div>
+		<div class="sidebar_panel"><a class="sidebar" href="{{ path('cc_user_account_show') }}">{{ 'sidebar.link.account.view'|trans({}, 'CCDNUserProfileBundle') }}</a></div>
+		<div class="sidebar_panel"><a class="sidebar" href="{{ path('cc_profile_show') }}">{{ 'sidebar.link.profile.view'|trans({}, 'CCDNUserProfileBundle') }}</a></div>
 		{% endif %}
 	</div>
 	{% endif %}
@@ -32,74 +32,100 @@
 
 {% include 'CCDNComponentCommonBundle:Flashes:flashes.html.twig' %}
 
-<div class="common_box_5 bg_header_smoke">
-	<div class="common_box_header">
-		<span class="heading_glow">{{ 'title.member' | trans({}, 'CCDNUserMemberBundle') }}</span>
+<div class="section_wrap_square">
+	<div class="section_header">
+		<h2>{{ 'title.member' | trans({}, 'CCDNUserMemberBundle') }}</h2>
 	</div>
-	<div class="common_tool_strip">
+	
+	<div class="section_tool_strip">
 		<div class="h_align_centre">		
 		{% for letter in "A".."Z" %}
 			<a href="{{ path('cc_members_alpha_index', {'alpha': letter}) }}">{{ letter }}</a>&nbsp;
 		{% endfor %}
 		</div>
 	</div>
+	
 	{% if pager.haveToPaginate %}
 	<div class="pagerfanta">
 		{{ pagerfanta(pager, 'default', {'routeName': pager_route } ) }}
 	</div>
 	{% endif %}
-	<div class="common_table_panel">		
+	<div class="section_table_panel">		
 		<table class="common_list">
 			<thead>
 				<tr>
-					<th>{{ 'member.table.head.username' | trans({}, 'CCDNUserMemberBundle') }}</th>
-					<th class="h_align_centre">{{ 'member.table.head.website' | trans({}, 'CCDNUserMemberBundle') }}</th>
-					<th class="h_align_centre">{{ 'member.table.head.pm' | trans({}, 'CCDNUserMemberBundle') }}</th>
-					<th class="h_align_centre">{{ 'member.table.head.aim' | trans({}, 'CCDNUserMemberBundle') }}</th>	
-					<th class="h_align_centre">{{ 'member.table.head.msn' | trans({}, 'CCDNUserMemberBundle') }}</th>	
-					<th class="h_align_centre">{{ 'member.table.head.icq' | trans({}, 'CCDNUserMemberBundle') }}</th>	
-					<th class="h_align_centre">{{ 'member.table.head.yahoo' | trans({}, 'CCDNUserMemberBundle') }}</th>
-					<th class="h_align_centre">{{ 'member.table.head.joined_date' | trans({}, 'CCDNUserMemberBundle') }}</th>				
+					<th class="left"><span class="table_header">{{ 'member.table.head.username' | trans({}, 'CCDNUserMemberBundle') }}</span></th>
+					<th class="center"><span class="table_header">{{ 'member.table.head.website' | trans({}, 'CCDNUserMemberBundle') }}</span></th>
+					<th class="center"><span class="table_header">{{ 'member.table.head.pm' | trans({}, 'CCDNUserMemberBundle') }}</span></th>
+					<th class="center"><span class="table_header">{{ 'member.table.head.aim' | trans({}, 'CCDNUserMemberBundle') }}</span></th>	
+					<th class="center"><span class="table_header">{{ 'member.table.head.msn' | trans({}, 'CCDNUserMemberBundle') }}</span></th>	
+					<th class="center"><span class="table_header">{{ 'member.table.head.icq' | trans({}, 'CCDNUserMemberBundle') }}</span></th>	
+					<th class="center"><span class="table_header">{{ 'member.table.head.yahoo' | trans({}, 'CCDNUserMemberBundle') }}</span></th>
+					<th class="center"><span class="table_header">{{ 'member.table.head.joined_date' | trans({}, 'CCDNUserMemberBundle') }}</span></th>				
 				</tr>
 			</thead>
 			<tbody>
 			{% for row, user in members %}
 				{% if not user.locked or not user.enabled %}
 				<tr class="{{ cycle(['row_odd', 'row_even'], row) }}">
-					<td class="">
+					<td class="left">
+						<span class="table_data">
 						<a class="username_medium" href="{{ path(user_profile_route, {'user_id': user.getId }) }}">{{ user.username }}</a>
+						</span>
 					</td>
-					<td class="h_align_centre">
+					<td class="center">
+						<span class="table_data">
 						{% if user.getProfile.website %}
-						<a href="{{ user.getProfile.website }}" target="_blank"><img class="icon_16x16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_world.png') }}" alt="icon"></a>
+						<a href="{{ user.getProfile.website }}" target="_blank"><img class="icon16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_world.png') }}" alt="icon"></a>
 						{% endif %}
+						</span>
 					</td>
-					<td class="h_align_centre">
-						<a href="{{ path('cc_message_message_compose_to', {'user_id': user.getId }) }}"><img class="icon_16x16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_email.png') }}" alt="icon"></a>
+					<td class="center">
+						<span class="table_data">
+						<a href="{{ path('cc_message_message_compose_to', {'user_id': user.getId }) }}"><img class="icon16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_email.png') }}" alt="icon"></a>
+						</span>
 					</td>
-					<td class="h_align_centre">
+					<td class="center">
+						<span class="table_data">
 						{% if user.getProfile.aimIsPublic %}
-						<a href="mailto:{{ user.getProfile.aim }}"><img class="icon_16x16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" alt="icon"></a>
+						<a href="mailto:{{ user.getProfile.aim }}"><img class="icon16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" alt="icon"></a>
 						{% endif %}
+						</span>
 					</td>
-					<td class="h_align_centre">
+					<td class="center">
+						<span class="table_data">
 						{% if user.getProfile.msnIsPublic %}
-						<a href="mailto:{{ user.getProfile.msn }}"><img class="icon_16x16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" alt="icon"></a>
+						<a href="mailto:{{ user.getProfile.msn }}"><img class="icon16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" alt="icon"></a>
 						{% endif %}
+						</span>
 					</td>
-					<td class="h_align_centre">
+					<td class="center">
+						<span class="table_data">
 						{% if user.getProfile.icqIsPublic %}
-						<a href="mailto:{{ user.getProfile.icq }}"><img class="icon_16x16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" alt="icon"></a>
+						<a href="mailto:{{ user.getProfile.icq }}"><img class="icon16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" alt="icon"></a>
 						{% endif %}
+						</span>
 					</td>
-					<td class="h_align_centre">
+					<td class="center">
+						<span class="table_data">
 						{% if user.getProfile.yahooIsPublic %}
-						<a href="mailto:{{ user.getProfile.yahoo }}"><img class="icon_16x16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" alt="icon"></a>
+						<a href="mailto:{{ user.getProfile.yahoo }}"><img class="icon16" width="16" height="16" src="{{ asset('bundles/ccdncomponentcommon/images/icons/Black/16x16/16x16_address.png') }}" alt="icon"></a>
 						{% endif %}
+						</span>
 					</td>
-					<td class="h_align_centre">{{ user.getRegisteredDate|date("d/m/Y - H:i:s") }}</td>
+					<td class="center">
+						<span class="table_data">
+							{{ user.getRegisteredDate|date("d/m/Y - H:i:s") }}
+						</span>
+					</td>
 				</tr>
 				{% endif %}
+			{% else %}
+				<tr>
+					<td class="center" colspan="8">
+						<span class="table_empty">{{ 'members.table.empty' | trans({}, 'CCDNUserMemberBundle') }}</span>
+					</td>
+				</tr>
 			{% endfor %}
 			</tbody>
 		</table>
